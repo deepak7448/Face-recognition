@@ -29,7 +29,7 @@ def present(name):
                     Date DATE NOT NULL,
                     Time TIME NOT NULL)'''
                 cur.execute(create_table)
-                exists = '''SELECT date FROM Empolyee WHERE (date='{}')'''.format(date.today())
+                exists = '''SELECT (name,date) FROM Empolyee WHERE (name='{}' AND date='{}')'''.format(name,date.today())
                 cur.execute(exists)
                 # result = cur.fetchone()
                 ex=bool(cur.rowcount)
